@@ -1,6 +1,6 @@
 export const enum MaybeTag {
   None = "None",
-  Some = "Some"
+  Some = "Some",
 }
 
 interface None {

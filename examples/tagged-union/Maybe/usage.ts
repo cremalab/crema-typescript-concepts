@@ -1,4 +1,4 @@
-import { Maybe, MaybeTag, Some, None } from ".";
+import { Maybe, MaybeTag, None, Some } from "."
 
 function maybeToString<A>(x: Maybe<A>): string {
   switch (x.tag) {
