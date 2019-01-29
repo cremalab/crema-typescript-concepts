@@ -1,2 +1,2 @@
-# learn-typescript
-A place to noodle on typescript learnings
+# Learn TypeScript
+A place to noodle on TypeScript learnings
