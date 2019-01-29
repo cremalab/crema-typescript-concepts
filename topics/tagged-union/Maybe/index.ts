@@ -1,14 +1,13 @@
+import { Tagged } from "../Tagged"
+
 export const enum MaybeTag {
   None = "None",
   Some = "Some",
 }
 
-interface None {
-  tag: MaybeTag.None
-}
+interface None extends Tagged<MaybeTag.None> {}
 
-interface Some<A> {
-  tag: MaybeTag.Some
+interface Some<A> extends Tagged<MaybeTag.Some> {
   data: A
 }
 

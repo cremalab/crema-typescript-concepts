@@ -1,5 +1,5 @@
 import { Error, Loading, Res, ResTag, Success } from "."
-import { match } from "../../match"
+import { match } from "../match"
 
 interface User {
   name: string
