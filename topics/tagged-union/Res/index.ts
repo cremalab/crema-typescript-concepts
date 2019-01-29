@@ -1,18 +1,16 @@
+import { Tagged } from "../Tagged"
+
 export const enum ResTag {
   Loading = "Loading",
   Success = "Success",
   Error = "Error",
 }
 
-interface Loading {
-  tag: ResTag.Loading
-}
-interface Error {
-  tag: ResTag.Error
+interface Loading extends Tagged<ResTag.Loading> {}
+interface Error extends Tagged<ResTag.Error> {
   message: string
 }
-interface Success<A> {
-  tag: ResTag.Success
+interface Success<A> extends Tagged<ResTag.Success> {
   data: A
 }
 export type Res<A> = Loading | Error | Success<A>
