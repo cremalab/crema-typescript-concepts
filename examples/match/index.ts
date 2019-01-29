@@ -2,12 +2,13 @@ type Cases<A extends { tag: B }, R, B extends string | number | symbol = B> = {
   [K in A["tag"]]: A extends { tag: K } ? (x: A) => R : never
 }
 
-export function match<
-  A extends { tag: B },
-  R,
-  B extends string | number | symbol = B,
-  V extends A = V
->(cases: Cases<A, R, B>, v: A): R {
+export const match = <
+  TaggedUnion extends { tag: Tag },
+  Return,
+  Tag extends string | number | symbol = Tag
+>(
+  cases: Cases<TaggedUnion, Return, Tag>
+) => (v: TaggedUnion): Return => {
   const c = cases[v.tag]
   return c(v)
 }
