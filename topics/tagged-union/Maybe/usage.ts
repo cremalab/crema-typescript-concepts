@@ -1,22 +1,19 @@
-import { Maybe, MaybeTag, None, Some } from "."
-
-function maybeToString<A>(x: Maybe<A>): string {
-  switch (x.tag) {
-    case MaybeTag.None:
-      return "none"
-    case MaybeTag.Some:
-      return "some"
-  }
-}
-
-export const thing = maybeToString(Some(2))
+import { Maybe, Some, None } from '.'
 
 interface User {
-  name: string
+  name?: string // note that field may be absent
+  id: string
 }
 
-const head = <A>(xs: A[]): Maybe<A> => (xs[0] === undefined ? None : Some(xs[0]))
+const getName = (user: User): Maybe<string> => user.name 
+  ? Some(user.name) 
+  : None
 
-const users: User[] = []
+const userWithName: User = { id: "1", name: "Blake" }
+const userWithoutName: User = { id: "2" }
 
-export const firstUser = head(users)
+// result1 is of type Maybe<string> specifically Some<string>
+export const result1 = getName(userWithName)
+
+// result2 is of type Maybe<string> specifically None
+export const result2 = getName(userWithoutName)
