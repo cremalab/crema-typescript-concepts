@@ -18,14 +18,14 @@ type Maybe<A> = None | Some<A>
 
 > Read this as a single file with comments interspersed
 
-First, we import the `Maybe` type along with its "member constructors". A Member Constructor is either constant value (e.g `None`) or a function when that member is parameterized (e.g. `Some<A>`). So to clarify, `Maybe` is a type—`Some` and `None` are code.
+First, we import the `Maybe` type along with its Member Constructors. A Member Constructor is either a constant value (e.g `None`) or a function when that member is parameterized (e.g. `Some<A>`). So to clarify, `Maybe` is a *type*. `Some` and `None` are *Member Constructors* (e.g. code).
 
 ```ts
 import { Maybe, Some, None } from '.'
 ...
 ```
 
-Next we define a `User` interface for use later.
+Next we define a `User` interface for later use.
 
 ```ts
 ...
@@ -59,4 +59,4 @@ const result2 = getName(userWithoutName)
 ...
 ```
 
-This is all fine and good, but how do I actually _use_ the the `string` (`user.name`) that is maybe contained inside `Maybe<string>` 🥁?
+This is all fine and good, but how do I actually _use_ the the `string` (`user.name`) that is maybe contained inside `Maybe<string>` 🥁? Let's head over to [match](../match/README.md) to see how.
